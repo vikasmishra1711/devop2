@@ -1,1 +1,10 @@
-print("Learning devops by nilesh")
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Learning devops by vikas"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
