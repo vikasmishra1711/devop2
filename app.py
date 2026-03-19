@@ -1,10 +1,15 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Learning devops by vikas mshra"
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+
+
+
+
+print("vikash mishra")
+
+@app.route('/github-webhooks/', methods=['POST'])
+def webhook():
+    print(request.json)
+    return "OK", 200
