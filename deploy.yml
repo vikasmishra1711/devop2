@@ -1,0 +1,16 @@
+---
+- name: Deploy Docker Container
+  hosts: web
+  become: yes
+
+  tasks:
+
+    - name: Pull Docker image
+      command: docker pull {{ dockerhub_image }}
+
+    - name: Remove old container
+      command: docker rm -f {{ container_name }}
+      ignore_errors: yes
+
+    - name: Run container
+      command: docker run -d -p {{ port }}:5000 --name {{ container_name }} {{ dockerhub_image }}
