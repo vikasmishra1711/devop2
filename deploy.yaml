@@ -13,4 +13,8 @@
       ignore_errors: yes
 
     - name: Run container
-      command: docker run -d -p {{ port }}:5000 --name {{ container_name }} {{ dockerhub_image }}
+      command: >
+        docker run -d
+        -p {{ port }}:5000
+        --name {{ container_name }}
+        {{ dockerhub_image }}
